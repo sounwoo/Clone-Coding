@@ -1,0 +1,116 @@
+### 
+
+// 회원가입
+POST http://127.0.0.1:3000/user/signup
+Content-Type: application/json
+
+{
+    "email":"timeli123@naver.com",
+    "password":"jason1234!"
+}
+
+###
+// 아이디 중복 검사
+POST  http://15.164.50.132/user/idCheck
+Content-Type: application/json
+
+{
+    "email":"timeli1@naver.com"
+}
+
+###
+// 로그인
+POST http://127.0.0.1:2000/user/login
+Content-Type: application/json
+
+{
+    "email":"timeli123@naver.com",
+    "password":"jason1234!"
+}
+
+###
+// 인증 메일
+POST http://15.164.50.132user/emailAuth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTcwMjE3N30.HxqdcEkGQHXQzAIB23ZanaeJPgVGkYYe609w03QUnQ0
+Content-Type: application/json
+
+###
+// 인증 체크
+GET http://15.164.50.132/user/checkEmailAuth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTcwMjE3N30.HxqdcEkGQHXQzAIB23ZanaeJPgVGkYYe609w03QUnQ0
+Content-Type: application/json
+
+{
+    "emailAuth": 3669
+}
+
+###
+// 비밀번호 변경
+PATCH  http://15.164.50.132/user/changePassword
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTcwMjE3N30.HxqdcEkGQHXQzAIB23ZanaeJPgVGkYYe609w03QUnQ0
+Content-Type: application/json
+
+{
+    "password": "jason1234"
+}
+
+###
+// 영화 저장
+POST  http://15.164.50.132/api
+Content-Type: application/json
+
+{
+    "videoUrl" : "http://h.vod.cgv.co.kr/vodCGVa/85715/85715_201958_1200_128_960_540.mp4",
+    "imgUrl":"https://movie-phinf.pstatic.net/20141014_142/1413271826240El8hC_JPEG/movie_image.jpg?type=m203_290_2",
+    "title":"test",
+    "content":"2차 세계대전, 전차부대를 이끄는 대장 ‘워대디’에게 적으로 둘러싸인 최전선에서의 마지막 전투 명령이 떨어진다. 하지만 수 차례의 전투로 대부분의 동료를 잃은 그에겐 단 한 대의 탱크 ‘퓨리’와 지칠 대로 지쳐버린 부대원들만이 남아있을 뿐이다. 게다가 지원군으로 경력이 전무한 신병 ‘노먼’이 배치되고, ‘워대디’는 신참을 포함한 단 4명의 부대원만으로 적진에 나서야 하는 상황에 처한다. 수백 명의 적들과 맞서야 하는 단 5인의 병사. 최소의 인원과 최악의 조건 속, 사상 최대 위기에 처한 ‘워대디’와 그의 부대는 생존 가능성 제로, 최후의 전쟁터로 향하는데…! 역사를 바꾼 그들의 불가능한 전쟁이 시작된다!",
+    "category":"코미디",
+    "director":"데이비드 에이어",
+    "actor":"브래드 피트, 로건 레먼, 샤이아 라보프"
+}
+
+###
+// 좋아요
+PUT  http://15.164.50.132/api/movie/1/like
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJpYXQiOjE2NTU5MDc5NzZ9.rE6xyrLWRWcrPAq9-Q_gkkhqYnsgfGoTUtshw6LejPc
+Content-Type: application/json
+
+###
+// 마이페이지 조회
+GET  http://127.0.0.1:2000/user/mypage
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NjM4OTUwNH0.y7WHMdlYjfE7Xdnrzf94GUKItmvbQQFyS25mkb4G4cs
+Content-Type: application/json
+
+
+###
+// 찜하기
+PUT  http://15.164.50.132/api/movie/1/mylist
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJpYXQiOjE2NTU5MDc5NzZ9.rE6xyrLWRWcrPAq9-Q_gkkhqYnsgfGoTUtshw6LejPc
+
+
+###
+// 찜한 목록 조회
+GET http://15.164.50.132/api/mylist
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJpYXQiOjE2NTU5MDc5NzZ9.rE6xyrLWRWcrPAq9-Q_gkkhqYnsgfGoTUtshw6LejPc
+Content-Type: application/json
+
+
+###
+// 검색
+GET  http://15.164.50.132/api/search?title=%25EB%25A7%2588%25EB%2585%2580
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTgxMjA0Nn0.1vK60DBB9EqxY4C3Tep7QZl5-0H-er25Hnzg-xAh8fs
+Content-Type: application/json
+
+
+
+###
+// 영화 전체 조회
+GET http://127.0.0.1:8000/api/movies
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJpYXQiOjE2NTU4OTk1MDR9.uAN3TMeNBVWu-y90zx_Vv-vSMebJRuqj2w5zpQugP0g
+Content-Type: application/json
+
+###
+// 영화 상세 조회
+GET http://15.164.50.132:8000/api/movie/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJpYXQiOjE2NTU4OTk1MDR9.uAN3TMeNBVWu-y90zx_Vv-vSMebJRuqj2w5zpQugP0g
+Content-Type: application/json
